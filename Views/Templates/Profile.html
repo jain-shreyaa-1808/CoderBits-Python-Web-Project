@@ -1,0 +1,9 @@
+<div class="container">
+    $if session["user"]=="none":
+       <h2>Hello Coder</h2>
+    $else:
+        <h1>Your Profile:</h1>
+        <p>Username: $session["user"]["username"]<br>
+           Name: $session["user"]["first_name"] $session["user"]["last_name"]<br>
+           Email-Id: $session["user"]["email"] </p>
+</div>

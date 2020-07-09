@@ -1,0 +1,14 @@
+
+<div class="container">
+    $if session["user"]=="none":
+       <h3> Hello Coder<br> Steps to Operate:</h3>
+       <ol>
+           <li>Register yourself</li>
+           <li>Login to your account</li>
+           <li>View your profile using the profile tab</li>
+       </ol>
+
+    $else:
+        <h1>Hello $session["user"]["first_name"]</h1>
+
+</div>
