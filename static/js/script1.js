@@ -38,4 +38,16 @@ $(document).ready(function(){
 
         });
     });
+    $(document).on("click","#logout-link",function(e){
+        e.preventDefault();
+        $.ajax({
+            url: "/logout",
+            type:"GET",
+            success:function(res){
+                if (res=="success"){
+                    window.location.href="/login";
+                }
+            }
+        });
+    });
 });

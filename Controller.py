@@ -18,7 +18,7 @@ urls= (
 )
 
 app=web.application(urls,globals())
-session=web.session.Session(app,web.session.DiskStore("sessions"),initializer={"user": "none"})
+session=web.session.Session(app,web.session.DiskStore("sessions"),initializer={"user": None})
 session_data = session._initializer
 
 render=web.template.render("Views/Templates", base="MainLayout",globals={"session":session_data,"current_user": session_data["user"]})
@@ -68,6 +68,8 @@ class CheckLogin:
 
 class Logout:
     def GET(self):
+        session["user"]= None
+        session_data["user"]= None
         session.kill()
         return "success"
 
