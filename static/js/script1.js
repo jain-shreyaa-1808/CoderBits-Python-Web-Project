@@ -50,4 +50,17 @@ $(document).ready(function(){
             }
         });
     });
+    $(document).on("submit","#post-activity",function(e){
+        e.preventDefault();
+        form=$(this).serialize()
+
+        $.ajax({
+            url:"/post-activity",
+            type:"POST",
+            data: form,
+            success:function(res){
+                console.log(res);
+            }
+        });
+    });
 });

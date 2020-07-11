@@ -1,14 +1,44 @@
+$def with (posts)
 
-<div class="container">
+<div >
     $if session["user"]== None:
-       <h3> Hello Coder<br> Steps to Operate:</h3>
-       <ol>
-           <li>Register yourself</li>
-           <li>Login to your account</li>
-           <li>View your profile using the profile tab</li>
-       </ol>
-
+        <h3> Hello Coder</h3>
     $else:
-        <h1>Hello $session["user"]["first_name"]</h1>
-
-</div>
+        <div class="row">
+                <ul class="sidebar col-md-6">
+                    <li class="active list-unstyled"><a href="#"><span class="mdi mdi-home"></span>Home Feed</li>
+                    <li class="list-unstyled"><a href="#"><span class="mdi mdi-account-circle"></span>Profile</li>
+                    <li class="list-unstyled"><a href="#"><span class="mdi mdi-email"></span>Messages</li>
+                    <li class="list-unstyled"><a href="#"><span class="mdi mdi-google-circles-group"></span>Friends</li>
+                    <li class="list-unstyled"><a href="#"><span class="mdi mdi-google-circles-communities"></span>Communities</li>
+                    <li class="list-unstyled"><a href="#"><span class="mdi mdi-bell"></span>Notifications</li>
+                    <li class="list-unstyled separator"></li>
+                    <li class="list-unstyled"><a href="#"><span class="mdi mdi-settings"></span>Settings</li>
+                    <li class="list-unstyled"><a href="#"><span class="mdi mdi-help-circle"></span>Help</li>
+                </ul>
+            <div class="col-md-6">
+                <div class="post-box">
+                    <form id="post-activity">
+                        <textarea name="content" class="post-input" placeholder="What's new ,$session['user']['first_name']?"></textarea>
+                        <button id="post-button" class="btn btn-info btn-raised waves_effect" type="submit"><span class="mdi mdi-send"></span>Post</button>
+                    </form>
+                </div>
+                $for post in posts:
+                    <div class="post-card">
+                        <div class="header">
+                            <div class="avatar">
+                                <a href="/profile">$post['user']['first_name'] $post['user']['last_name']</a>
+                            </div>
+                            <div class="content">
+                            $post['content']
+                            </div>
+                            <div class="footer">
+                            <button class="btn btn-round waves-effect btn-default btn-raised btn-like"><span class="mdi mdi-thumb-up-outline"></span></button>
+                            <button class="btn btn-round waves-effect btn-default btn-raised btn-like"><span class="mdi mdi-comment-text-outline"></span></button>
+                            <button class="btn btn-round waves-effect btn-default btn-raised btn-like"><span class="mdi mdi-share"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>

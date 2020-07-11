@@ -5,7 +5,7 @@ class LoginModel:
     def __init__(self):
         self.client=MongoClient()
         self.db=self.client.coderbit
-        self.Users=self.db.Users
+        self.Users=self.db.users
 
     def check_user(self,data):
        user = self.Users.find_one({"username":data.username})

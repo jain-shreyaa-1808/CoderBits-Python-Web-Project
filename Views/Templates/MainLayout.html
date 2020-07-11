@@ -1,6 +1,6 @@
 $def with (page)
-$var css: static/css/bootstrap.min.css static/css/bootstrap-material-design.min.css static/css/ripples.min.css
-$var js: static/js/jquery-1.9.1.min.js static/js/bootstrap.min.js static/js/ripples.min.js static/js/script1.js
+$var css: static/css/bootstrap.min.css static/css/bootstrap-material-design.min.css static/css/ripples.min.css https://materialdesignicons.com/cdn/2.0.46/css/materialdesignicons.min.css
+$var js: static/js/jquery-3.5.1.min.js static/js/bootstrap.min.js static/js/ripples.min.js static/js/script1.js
 
 <html lang="en">
 <head>
@@ -9,6 +9,114 @@ $var js: static/js/jquery-1.9.1.min.js static/js/bootstrap.min.js static/js/ripp
     $if self.css:
         $for style in self.css.split():
             <link rel="stylesheet" href="$style"/>
+    <style>
+        .btn-round{
+            width:0px;
+            height:57px;
+            line-height:42px;
+            border-radius:50%;
+            transform:scale(0.7,0.7);
+        }
+        .avatar{
+            line-height:26px;
+            position:relative;
+            top:6px;
+            left:54px;
+        }
+        .avatar a:before{
+            content:"";
+            display:inline;
+            width:40px;
+            height:40px;
+            border-radius:50%;
+            background-color:#AAA;
+            position:absolute;
+            top:-8;
+            left:-49px;
+        }
+        .content{
+            position:relative;
+            top:22px;
+        }
+        .btn-like{
+            margin-left:-5px;
+        }
+        .footer{
+            position:relative;
+            bottom:-22px;
+        }
+        li{
+        padding:6px;
+        }
+        li a,
+        .post-card a{
+            color:#444;
+            font-weight:bold;
+        }
+        .active a{
+            color:#32BAE2;
+        }
+        li span{
+            padding-left:12px;
+            padding-right:6px;
+            font-size:32px;
+            position:relative;
+            top:3px;
+        }
+        .separator{
+            height:22px;
+        }
+        .post-card span{
+            font-size:22px;
+            display:block;
+            position:relative;
+            left:-10px;
+        }
+        .post-box,
+        .post-card{
+            background-color:white;
+            width:400px;
+            height:150px;
+            margin:20px;
+            -webkit-box-shadow:0px 3px 7px 0px
+            rgba(0,0,0,0.04);
+            -moz-box-shadow: 0px 3px 7px 0px rgba(0,0,0,0.04);
+            box-shadow:0px 3px 7px 0px rgba(0,0,0,0.04);
+        }
+        textarea{
+            width:60%;
+            height:100%;
+            padding:12px;
+            border: none
+        }
+        .header{
+            padding:12px;
+        }
+        #post-button{
+            float:right;
+            margin-right:12px;
+            position:relative;
+            bottom:-72px;
+        }
+        .navbar .navbar-nav>li>a{
+            padding-top:13px;
+        }
+        @media(max-width:1199px){
+            .navbar .navbar-nav>li>a{
+                padding-top:9px;
+            }
+        }
+        @media(max-width:767px){
+            .sidebar{
+                top:300px;
+            }
+            .post-box,
+            .post-card{
+                 position:relative;
+                 top:300px;
+            }
+        }
+    </style>
 
 </head>
 <body>
